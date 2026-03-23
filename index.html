@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descriptive Statistics</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- KaTeX for beautiful math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .katex {
+            font-size: 1.1em;
+        }
+
+        /* Slightly larger math text */
+        .math-container {
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800">
+
+    <div class="max-w-6xl mx-auto p-6">
+        <!-- Header Section -->
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-2">Descriptive Statistics Visualizer</h1>
+            <p class="text-slate-600">Enter a set of numbers to instantly visualize their distribution and see
+                step-by-step mathematical calculations.</p>
+        </header>
+
+        <!-- Input Section -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <label for="dataInput" class="block text-sm font-semibold text-slate-700 mb-2">Dataset (comma-separated
+                values)</label>
+            <div class="flex gap-4">
+                <input type="text" id="dataInput"
+                    class="flex-1 w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                    value="2, 4, 4, 4, 5, 5, 7, 9" placeholder="e.g., 2, 4, 4, 4, 5, 5, 7, 9">
+                <button onclick="processData()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-colors shadow-sm">
+                    Calculate
+                </button>
+            </div>
+            <p id="errorMsg" class="text-red-500 text-sm mt-2 hidden">Please enter valid comma-separated numbers.</p>
+        </div>
+
+        <!-- Visualization Canvas -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8 overflow-hidden">
+            <h2 class="text-xl font-bold text-slate-800 mb-4">Distribution & Box Plot</h2>
+            <div class="w-full overflow-x-auto">
+                <canvas id="statCanvas" class="w-full min-w-[600px]"></canvas>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-4 text-sm text-slate-600 justify-center">
+                <span class="flex items-center"><span
+                        class="w-3 h-3 rounded-full bg-emerald-500 mr-2 border border-white shadow-sm"></span> Mean
+                    (Average)</span>
+                <span class="flex items-center"><span class="w-4 h-1 bg-red-500 mr-2"></span> Median</span>
+                <span class="flex items-center"><span
+                        class="w-3 h-3 rounded bg-blue-500 opacity-30 mr-2 border border-blue-500"></span> Interquartile
+                    Range (Box)</span>
+                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-indigo-500 mr-2"></span> Data
+                    Point</span>
+            </div>
+        </div>
+
+        <!-- Statistics Detail Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="statsGrid">
+            <!-- Cards -->
+        </div>
+    </div>
+    <script src="descriptive_statistics.js"></script>
+</body>
+</html>
