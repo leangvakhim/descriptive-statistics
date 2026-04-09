@@ -256,7 +256,7 @@ function renderStatsCards(data, s) {
             `
         },
         {
-            title: "Variance ($\\sigma^2$)",
+            title: "Variance (σ²)",
             desc: "The average of the squared differences from the Mean. Measures how spread out the data points are.",
             math: `
                 \\sigma^2 = \\frac{\\sum (x_i - \\mu)^2}{n} \\\\[10pt]
@@ -265,7 +265,7 @@ function renderStatsCards(data, s) {
             `
         },
         {
-            title: "Standard Deviation ($\\sigma$)",
+            title: "Standard Deviation (σ)",
             desc: "The square root of the variance. It represents the typical distance of a data point from the mean.",
             math: `
                 \\sigma = \\sqrt{\\sigma^2} \\\\[10pt]
